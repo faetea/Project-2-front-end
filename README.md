@@ -22,18 +22,18 @@ prompt : https://github.com/ga-wdi-boston/rails-project-full-stack-app
 ### Timeline:
 
 #### Week 5
-* Fri Oct 30th : Received project prompt.  Created two Github repos project will use, and began READMEs.
+* __Fri Oct 30th__ : Received project prompt.  Created two Github repos project will use, and began READMEs.
 
 #### Week 6
-* Mon, Nov 2nd : Decide what kind of app to make, begin sketching some rough wireframes for how front end will look and act
-* Tue, Nov 3rd : Think about kind of data front-end will need from back-end, and how data will be used
-* Wed, Nov 4th : Create new vanilla Rails app for back-end, but don't configure it, Create simple front-end w/ HTML and CSS based on wireframe, look up any gems might want to include in project
-* Thu, Nov 5th : Begin writing JavaScript for DOM manipulation and AJAX on front-end, mock up back-end, brainstorm kinds of data application will use
-* Fri, Nov 6th : Draw out object relation model, begin building models and migrations to represent data, test models w/ Rails console
+* __Mon, Nov 2nd__ : Decide what kind of app to make, begin sketching some rough wireframes for how front end will look and act
+* __Tue, Nov 3rd__ : Think about kind of data front-end will need from back-end, and how data will be used
+* __Wed, Nov 4th__ : Create new vanilla Rails app for back-end, but don't configure it, Create simple front-end w/ HTML and CSS based on wireframe, look up any gems might want to include in project
+* __Thu, Nov 5th__ : Begin writing JavaScript for DOM manipulation and AJAX on front-end, mock up back-end, brainstorm kinds of data application will use
+* __Fri, Nov 6th__ : Draw out object relation model, begin building models and migrations to represent data, test models w/ Rails console
 
 #### Presentation Week
-* Mon, Nov 9th : Add CORS to API, make routes, test routes w/ Postman, test accessing API from front-end
-* Tue, Nov 10th : Add authentication, if you haven't already
-* Wed, Nov 11th : Do end-to-end testing of your app, deploy your front-end and back-end apps
-* Thu, Nov 12th : Test and debug
-* Fri, Nov 13th : Present!
+* __Mon, Nov 9th__ : Add CORS to API, make routes, test routes w/ Postman, test accessing API from front-end
+* __Tue, Nov 10th__ : Add authentication, if you haven't already
+* __Wed, Nov 11th__ : Do end-to-end testing of your app, deploy your front-end and back-end apps
+* __Thu, Nov 12th__ : Test and debug
+* __Fri, Nov 13th__ : Present!
