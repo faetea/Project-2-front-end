@@ -15,11 +15,9 @@
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap theme -->
     <link href="assets/css/bootstrap-theme.min.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="assets/css/theme.css" rel="stylesheet">
     <link href="assets/css/signin.css" rel="stylesheet">
-
   </head>
 
   <body role="document">
@@ -27,7 +25,6 @@
     <!-- Fixed navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
-
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
@@ -44,26 +41,23 @@
             </li>
           </ul>
         </div><!--/.nav-collapse -->
-
       </div>
     </nav>
 
-    <div class="container theme-showcase" role="main">
-<!-- -->
-<!-- -->
 
-      <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="container theme-showcase" role="main">
+
+      <!-- Main jumbotron for Chart -->
       <div class="jumbotron">
         <div style="width:70%">
           <canvas id="canvas" height="450" width="600"></canvas>
         </div>
-
       </div>
+
 
       <div class="page-header">
         <h3>Previous Health Entries</h3>
       </div>
-
       <div class="row">
         <div class="col-sm-4">
           <div class="list-group">
@@ -81,14 +75,10 @@
             </a>
           </div>
         </div><!-- /.col-sm-4 -->
-
       </div>
 
-<!-- -->
-<!-- -->
     </div> <!-- /container -->
 
-    <div class="container">
       <form class="form-signin">
         <h2 class="form-signin-heading">Please register</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
@@ -100,11 +90,9 @@
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+        <button class="btn btn-lg btn-primary btn-block" type="button" id="register">Register</button>
       </form>
-    </div> <!-- /container -->
 
-    <div class="container">
       <form class="form-signin">
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
@@ -116,9 +104,11 @@
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="button" id="login">Sign in</button>
       </form>
-    </div> <!-- /container -->
+
+
+<!-- http://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_js_modal2&stacked=h -->
 
 
     <!-- Bootstrap core JavaScript
@@ -126,6 +116,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/project.js"></script>
     <script src="assets/js/docs.min.js"></script>
     <!-- chart.js library -->
     <script src="assets/js/Chart.js"></script>
