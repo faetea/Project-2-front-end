@@ -85,8 +85,87 @@
       </form>
 
 
-<!-- http://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_js_modal2&stacked=h -->
-
+<div class="container">
+  <div class="row">
+        <!-- panel preview -->
+        <div class="col-sm-5">
+            <h4>Add Entry</h4>
+            <div class="panel panel-default">
+                <div class="panel-body form-horizontal payment-form">
+                    <div class="form-group">
+                        <label for="day_rating" class="col-sm-5 control-label">Day Rating</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="rating-input" placeholder="Type a word">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="pain_rank" class="col-sm-5 control-label">Pain Level<br>9 = max, 1 = min</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" id="rank-select" placeholder="select pain level">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="note_entry" class="col-sm-5 control-label">Enter Note</label>
+                        <div class="col-sm-9">
+                            <textarea rows="3" class="form-control" placeholder="Describe today's symptoms."></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="symptoms" class="col-sm-5 control-label">Symptoms</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="symptoms" placeholder="list symptoms">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="medication" class="col-sm-5 control-label">Medication</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="med-input" placeholder="list medications">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="mood" class="col-sm-5 control-label">Mood<br>1 = positive mood</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" id="mood-select" placeholder="select mood">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="date" class="col-sm-5 control-label">Date</label>
+                        <div class="col-sm-9">
+                            <input type="date" class="form-control" id="date" name="date">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12 text-right">
+                            <button type="button" class="btn btn-default preview-add-button">
+                                <span class="glyphicon glyphicon-plus"></span> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- / panel preview -->
+  </div>
+</div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
