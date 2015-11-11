@@ -5,12 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-
+    <meta name="description" content="A health application for tracking trends in barometric pressure.">
+    <meta name="author" content="Saphron, Faetea">
     <title>My Health App</title>
-
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap theme -->
@@ -44,18 +41,15 @@
       </div>
     </nav>
 
-
     <div class="container theme-showcase" role="main">
-
       <!-- Main jumbotron for Chart -->
       <div class="jumbotron">
         <h1>My Health App</h1>
         <p>This is an application to track trends between your health and barometric pressure.</p>
       </div>
-
     </div> <!-- /container -->
 
-
+<!-- hidden Register form -->
       <form class="form-signin" id="reg-form">
         <h2 class="form-signin-heading">Please register</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
@@ -69,7 +63,7 @@
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="button" id="register">Register</button>
       </form>
-
+<!-- hidden Login form -->
       <form class="form-signin" id="log-form">
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
@@ -84,8 +78,103 @@
         <button class="btn btn-lg btn-primary btn-block" type="button" id="login">Sign in</button>
       </form>
 
-
 <!-- http://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_js_modal2&stacked=h -->
+After Login, Ask:
+
+Would you like to list previous entries?
+<form id="list-entries">
+  <input name="list-entries" type="submit" class="btn btn-default" value="List Entries">
+  <input class="token" name="token" type="hidden">
+</form>
+
+Would you like to creat a new entry?
+<form id="create-entry">
+  <input name="create-entry" type="submit" class="btn btn-default" value="Create entry">
+  <input class="token" name="token" type="hidden">
+</form>
+
+<!-- hidden container form -->
+<div class="container">
+  <div class="row">
+        <!-- panel preview -->
+        <div class="col-sm-5">
+            <h4>Add Entry</h4>
+            <div class="panel panel-default">
+                <div class="panel-body form-horizontal payment-form">
+                    <div class="form-group">
+                        <label for="day_rating" class="col-sm-5 control-label">Day Rating</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="rating-input" placeholder="Type a word">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="pain_rank" class="col-sm-5 control-label">Pain Level<br>9 = max, 1 = min</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" id="rank-select" placeholder="select pain level">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="note_entry" class="col-sm-5 control-label">Enter Note</label>
+                        <div class="col-sm-9">
+                            <textarea rows="3" class="form-control" placeholder="Describe today's symptoms."></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="symptoms" class="col-sm-5 control-label">Symptoms</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="symptoms" placeholder="list symptoms">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="medication" class="col-sm-5 control-label">Medication</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="med-input" placeholder="list medications">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="mood" class="col-sm-5 control-label">Mood<br>1 = positive mood</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" id="mood-select" placeholder="select mood">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="date" class="col-sm-5 control-label">Date</label>
+                        <div class="col-sm-9">
+                            <input type="date" class="form-control" id="date" name="date">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12 text-right">
+                            <button type="button" class="btn btn-default preview-add-button">
+                                <span class="glyphicon glyphicon-plus"></span> Add Entry
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- / panel preview -->
+  </div>
+</div>
 
 
     <!-- Bootstrap core JavaScript
@@ -100,7 +189,6 @@
     <!-- chart.js library -->
     <script src="assets/js/Chart.js"></script>
     <script src="assets/js/linechart.js"></script>
-
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
