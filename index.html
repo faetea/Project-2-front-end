@@ -16,6 +16,9 @@
     <link href="assets/css/theme.css" rel="stylesheet">
     <!-- My CSS -->
     <link href="assets/css/project.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="assets/js/project.js"></script>
   </head>
 
   <body role="document">
@@ -119,117 +122,108 @@
     </div> <!-- end container -->
 
 
-    <!-- hidden container form -->
-    <div class="container" id="create-entry-form">
-      <div class="row">
-        <div class="col-sm-5"> <!-- panel preview -->
-          <h4>Write New Entry</h4>
-          <div class="panel panel-default">
-            <div class="panel-body form-horizontal">
+    <div class="container">
+      <div class="row"><!-- needs list in same row! -->
+
+        <div class="col-xs-6" id="create-entry-form"> <!-- Col always 50% wide, on mobile & desktop -->
+          <h3>Write New Entry</h3>
+            <form class="panel panel-default panel-body form-horizontal" >
 
               <div class="form-group">
-                  <label for="day_rating" class="col-sm-5 control-label">Descriptive Word</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" id="rating-input" placeholder="Type a word that describes your day.">
-                </div>
+                <label for="day_rating" class="control-label col-xs-6 col-md-4">Descriptive Word</label>
+                  <div class="col-xs-6 col-md-5">
+                    <input type="text" class="form-control" id="rating-input" placeholder="Word that describes today">
+                  </div>
               </div> <!-- end day rating -->
 
               <div class="form-group">
-                <label for="pain_rank" class="col-sm-5 control-label">select 9 for max pain, 1 for min</label>
-                <div class="col-sm-9">
-                  <select class="form-control" id="pain-select">
-                    <option>1</option><option>2</option><option>3</option>
-                    <option>4</option><option>5</option><option>6</option>
-                    <option>7</option><option>8</option><option>9</option>
-                  </select>
-                </div>
+                <label for="pain_rank" class="control-label col-md-4">select 9 for max pain, 1 for min</label>
+                  <div class="col-md-5">
+                    <select class="form-control" id="pain-select">
+                      <option>1</option><option>2</option><option>3</option>
+                      <option>4</option><option>5</option><option>6</option>
+                      <option>7</option><option>8</option><option>9</option>
+                    </select>
+                  </div>
               </div> <!-- end pain integer -->
 
               <div class="form-group">
-                  <label for="note_entry" class="col-sm-5 control-label">Notes</label>
-                <div class="col-sm-9">
-                  <textarea rows="3" class="form-control" id="notes_text" placeholder="Describe today's symptoms."></textarea>
-                </div>
+                <label for="note_entry" class="control-label col-md-4">Notes</label>
+                  <div class="col-md-5">
+                    <textarea rows="3" class="form-control" id="notes_text" placeholder="Describe today's symptoms"></textarea>
+                  </div>
               </div> <!-- end note -->
 
               <div class="form-group">
-                  <label for="symptoms" class="col-sm-5 control-label">Symptoms</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" id="symptoms-input" placeholder="list symptoms">
-                </div>
+                <label for="symptoms" class="control-label col-md-4">Symptoms</label>
+                  <div class="col-md-5">
+                    <input type="text" class="form-control" id="symptoms-input" placeholder="list symptoms">
+                  </div>
               </div> <!-- end symptoms -->
 
               <div class="form-group">
-                  <label for="medication" class="col-sm-5 control-label">Medication</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" id="med-input" placeholder="list medications">
-                </div>
+                <label for="medication" class="control-label col-md-4">Medication</label>
+                  <div class="col-md-5">
+                    <input type="text" class="form-control" id="med-input" placeholder="list medications">
+                  </div>
               </div> <!-- end medication -->
 
               <div class="form-group">
-                <label for="mood" class="col-sm-5 control-label">select 1 for positive mood</label>
-                <div class="col-sm-9">
-                  <select class="form-control" id="mood-select" placeholder="select mood">
-                    <option>1</option><option>2</option><option>3</option>
-                    <option>4</option><option>5</option><option>6</option>
-                    <option>7</option><option>8</option><option>9</option>
-                  </select>
-                </div>
+                <label for="mood" class="control-label col-md-4">select 1 for positive mood</label>
+                  <div class="col-md-5">
+                    <select class="form-control" id="mood-select" placeholder="select mood">
+                      <option>1</option><option>2</option><option>3</option>
+                      <option>4</option><option>5</option><option>6</option>
+                      <option>7</option><option>8</option><option>9</option>
+                    </select>
+                  </div>
               </div> <!-- end mood integer -->
 
               <div class="form-group">
-                  <label for="date" class="col-sm-5 control-label">Date</label>
-                <div class="col-sm-9">
-                  <input type="date" class="form-control" id="date-input" name="date">
-                </div>
+                <label for="date" class="control-label col-md-4">Date</label>
+                  <div class="col-md-5">
+                    <input type="date" class="form-control" id="date-input" name="date">
+                  </div>
               </div> <!-- end date -->
 
               <div class="form-group">
-                <div class="col-sm-12 text-right">
-                  <button type="button" class="btn btn-default preview-add-button" id="save-entry-button">
-                    <span class="glyphicon glyphicon-plus"></span> Save Entry
-                  </button>
+                <div class="col-md-6 text-right">
+                  <button type="submit" class="btn btn-default" id="save-entry-button">Save Entry</button>
                 </div>
               </div> <!-- end save button -->
 
+            </form>
+        </div> <!-- end col-xs-6 create-entry-form -->
+
+        <div class="col-xs-6" id="list-of-entries"> <!-- Col always 50% wide, on mobile & desktop -->
+          <h3>List Previous Entries</h3>
+            <div class="list-group">
+              <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Monday, Nov 9th</h4>
+                <p class="list-group-item-text">day_rating, note_entry, list of symptoms, list of medication</p>
+              </a>
+              <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Sunday, Nov 8th</h4>
+                <p class="list-group-item-text">day_rating, note_entry, list of symptoms, list of medication</p>
+              </a>
+              <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Saturday, Nov 7th</h4>
+                <p class="list-group-item-text">day_rating, note_entry, list of symptoms, list of medication</p>
+              </a>
             </div>
-          </div>
-        </div> <!-- / panel preview -->
-      </div>
-    </div> <!-- end create entry form -->
+        </div> <!-- end col-xs-6 list-of-entries -->
 
-
-    <div class="container" id="list-of-entries">
-    <h3>List Previous Entries</h3>
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="list-group">
-            <a href="#" class="list-group-item">
-              <h4 class="list-group-item-heading">Monday, Nov 9th</h4>
-              <p class="list-group-item-text">day_rating, note_entry, list of symptoms, list of medication</p>
-            </a>
-            <a href="#" class="list-group-item">
-              <h4 class="list-group-item-heading">Sunday, Nov 8th</h4>
-              <p class="list-group-item-text">day_rating, note_entry, list of symptoms, list of medication</p>
-            </a>
-            <a href="#" class="list-group-item">
-              <h4 class="list-group-item-heading">Saturday, Nov 7th</h4>
-              <p class="list-group-item-text">day_rating, note_entry, list of symptoms, list of medication</p>
-            </a>
-          </div>
-        </div> <!-- /.col-sm-4 -->
-      </div>
-    </div> <!-- end container -->
+      </div> <!-- end row -->
+    </div> <!-- end container for form and list -->
 
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/docs.min.js"></script>
 
-    <script src="assets/js/project.js"></script>
     <script src="assets/js/session.js"></script>
     <script src="assets/js/api.js"></script>
     <script src="assets/js/entry.js"></script>

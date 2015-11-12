@@ -10,10 +10,13 @@ $(document).ready(function(){
 
 
   // Click handlers
+
+  // register session
   $("#register").click(function(){
     session.register( $("#regEmail").val(), $("#regPassword").val(), $("#confirmPassword").val() );
   }); // end click handler
 
+  // login session
   $("#login").click(function(){
     session.login( $("#logEmail").val(), $("#logPassword").val(), function(){
       $("#new-entry-button").show();
@@ -22,17 +25,20 @@ $(document).ready(function(){
   }); // end click handler
 
 
+  // click new entry button will show the create entry form
   $("#new-entry-button").click(function(){
     $("#create-entry-form").show();
     $("#list-of-entries").hide();
   }); // end click handler
 
+  // click list entries button will show list of entries
   $("#list-entries-button").click(function(){
     $("#list-of-entries").show();
     $("#create-entry-form").hide();
   }); // end click handler
 
-
+  // inside of create entry form,
+  // click save entry button will save new entry to database
   $("#save-entry-button").click(function(){
     var newEntry = {
       "entry":{
@@ -41,31 +47,22 @@ $(document).ready(function(){
         "note_entry":$("#notes-text").val(),
         "symptoms":$("#symptoms-input").val(),
         "medication":$("#med-input").val(),
-        "mood":$("#mood-select").val()
+        "mood":$("#mood-select").val(),
+        "created_at":$("#date-input").val()
       }
     }
     entry.createEntry(newEntry);
     $("#create-entry-form").hide();
   }); // end click handler
 
-  // $("#show-entry").click(function(){
-  //   entry.showEntry();
-  // }); // end click handler
+  //
+  $("#show-entry").click(function(){
+    entry.showEntry();
+  }); // end click handler
 
-  // $("#edit-entry").click(function(){
-  //   entry.editEntry();
-  // }); // end click handler
-
+  //
+  $("#edit-entry").click(function(){
+    entry.editEntry();
+  }); // end click handler
 
 }); // end document ready function
-
-
-// $("#rating-input").val()   t.string   "day_rating"
-// $("#pain-select").val()    t.integer  "pain_rank"
-// $("#notes-text").val()     t.string   "note_entry"
-// $("#symptoms-input").val() t.string   "symptoms"
-// $("#med-input").val()      t.string   "medication"
-// $("#mood-select").val()    t.integer  "mood"
-// $("#date-input").val()     t.datetime "created_at"
-
-//     "created_at":$("#date-input").val()
