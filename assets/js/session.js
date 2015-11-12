@@ -21,11 +21,14 @@ var session = {
   login: function(email, pw, callback){
     baseapi.login(session.makeCredentials(email, pw),
       function error(err, data){
-      if (err) { console.error(err); }
-      console.log(data);
-      session.userId = data.user.id;
-      session.token = data.user.token;
-      callback();
+      if (err) {
+        console.error(err);
+      } else {
+        console.log(data);
+        session.userId = data.user.id;
+        session.token = data.user.token;
+        callback();
+      }
     });
   }
 

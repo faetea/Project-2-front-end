@@ -112,103 +112,114 @@
     </div> <!-- end modal Login -->
 
 
-    <!-- After Login, show options create entry and list entries -->
+    <!-- After Login, show options new entry and list entries -->
     <div class="container">
-
-        <form class="submit" id="create-entry">
-          <input name="create-entry" type="submit" class="btn btn-default" value="Create entry">
-          <input class="token" name="token" type="hidden">
-        </form>
-
-        <form class="submit" id="list-entries">
-          <input name="list-entries" type="submit" class="btn btn-default" value="List Entries">
-          <input class="token" name="token" type="hidden">
-        </form>
-
+      <button type="button" class="btn btn-default" id="new-entry-button">New Entry</button>
+      <button type="button" class="btn btn-default" id="list-entries-button">List Entries</button>
     </div> <!-- end container -->
 
+
     <!-- hidden container form -->
-    <div class="container" id="new-entry">
+    <div class="container" id="create-entry-form">
       <div class="row">
-        <!-- panel preview -->
-        <div class="col-sm-5">
-               <h4>Add Entry</h4>
-               <div class="panel panel-default">
-                   <div class="panel-body form-horizontal payment-form">
-                       <div class="form-group">
-                           <label for="day_rating" class="col-sm-5 control-label">Day Rating</label>
-                           <div class="col-sm-9">
-                               <input type="text" class="form-control" id="rating-input" placeholder="Type a word">
-                            </div>
-                       </div>
-                       <div class="form-group">
-                           <label for="pain_rank" class="col-sm-5 control-label">Pain Level<br>9 = max, 1 = min</label>
-                           <div class="col-sm-9">
-                               <select class="form-control" id="rank-select" placeholder="select pain level">
-                                    <option>1</option>
-                                   <option>2</option>
-                                   <option>3</option>
-                                   <option>4</option>
-                                   <option>5</option>
-                                   <option>6</option>
-                                   <option>7</option>
-                                   <option>8</option>
-                                   <option>9</option>
-                               </select>
-                           </div>
-                       </div>
-                       <div class="form-group">
-                            <label for="note_entry" class="col-sm-5 control-label">Enter Note</label>
-                           <div class="col-sm-9">
-                               <textarea rows="3" class="form-control" placeholder="Describe today's symptoms."></textarea>
-                           </div>
-                       </div>
-                       <div class="form-group">
-                           <label for="symptoms" class="col-sm-5 control-label">Symptoms</label>
-                           <div class="col-sm-9">
-                               <input type="text" class="form-control" id="symptoms" placeholder="list symptoms">
-                           </div>
-                       </div>
-                       <div class="form-group">
-                            <label for="medication" class="col-sm-5 control-label">Medication</label>
-                            <div class="col-sm-9">
-                               <input type="text" class="form-control" id="med-input" placeholder="list medications">
-                           </div>
-                       </div>
-                           <div class="form-group">
-                            <label for="mood" class="col-sm-5 control-label">Mood<br>1 = positive mood</label>
-                           <div class="col-sm-9">
-                               <select class="form-control" id="mood-select" placeholder="select mood">
-                                   <option>1</option>
-                                   <option>2</option>
-                                   <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="date" class="col-sm-5 control-label">Date</label>
-                            <div class="col-sm-9">
-                                <input type="date" class="form-control" id="date" name="date">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-12 text-right">
-                                <button type="button" class="btn btn-default preview-add-button">
-                                    <span class="glyphicon glyphicon-plus"></span> Add Entry
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+        <div class="col-sm-5"> <!-- panel preview -->
+          <h4>Write New Entry</h4>
+          <div class="panel panel-default">
+            <div class="panel-body form-horizontal">
+
+              <div class="form-group">
+                  <label for="day_rating" class="col-sm-5 control-label">Descriptive Word</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="rating-input" placeholder="Type a word that describes your day.">
                 </div>
-            </div> <!-- / panel preview -->
-        </div>
-    </div>
+              </div> <!-- end day rating -->
+
+              <div class="form-group">
+                <label for="pain_rank" class="col-sm-5 control-label">select 9 for max pain, 1 for min</label>
+                <div class="col-sm-9">
+                  <select class="form-control" id="rank-select">
+                    <option>1</option><option>2</option><option>3</option>
+                    <option>4</option><option>5</option><option>6</option>
+                    <option>7</option><option>8</option><option>9</option>
+                  </select>
+                </div>
+              </div> <!-- end pain integer -->
+
+              <div class="form-group">
+                  <label for="note_entry" class="col-sm-5 control-label">Notes</label>
+                <div class="col-sm-9">
+                  <textarea rows="3" class="form-control" placeholder="Describe today's symptoms."></textarea>
+                </div>
+              </div> <!-- end note -->
+
+              <div class="form-group">
+                  <label for="symptoms" class="col-sm-5 control-label">Symptoms</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="symptoms" placeholder="list symptoms">
+                </div>
+              </div> <!-- end symptoms -->
+
+              <div class="form-group">
+                  <label for="medication" class="col-sm-5 control-label">Medication</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="med-input" placeholder="list medications">
+                </div>
+              </div> <!-- end medication -->
+
+              <div class="form-group">
+                <label for="mood" class="col-sm-5 control-label">select 1 for positive mood</label>
+                <div class="col-sm-9">
+                  <select class="form-control" id="mood-select" placeholder="select mood">
+                    <option>1</option><option>2</option><option>3</option>
+                    <option>4</option><option>5</option><option>6</option>
+                    <option>7</option><option>8</option><option>9</option>
+                  </select>
+                </div>
+              </div> <!-- end mood integer -->
+
+              <div class="form-group">
+                  <label for="date" class="col-sm-5 control-label">Date</label>
+                <div class="col-sm-9">
+                  <input type="date" class="form-control" id="date" name="date">
+                </div>
+              </div> <!-- end date -->
+
+              <div class="form-group">
+                <div class="col-sm-12 text-right">
+                  <button type="button" class="btn btn-default preview-add-button" id="save-entry-button">
+                    <span class="glyphicon glyphicon-plus"></span> Save Entry
+                  </button>
+                </div>
+              </div> <!-- end save button -->
+
+            </div>
+          </div>
+        </div> <!-- / panel preview -->
+      </div>
+    </div> <!-- end create entry form -->
+
+
+    <div class="container" id="list-of-entries">
+    <h3>List Previous Entries</h3>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="list-group">
+            <a href="#" class="list-group-item">
+              <h4 class="list-group-item-heading">Monday, Nov 9th</h4>
+              <p class="list-group-item-text">day_rating, note_entry, list of symptoms, list of medication</p>
+            </a>
+            <a href="#" class="list-group-item">
+              <h4 class="list-group-item-heading">Sunday, Nov 8th</h4>
+              <p class="list-group-item-text">day_rating, note_entry, list of symptoms, list of medication</p>
+            </a>
+            <a href="#" class="list-group-item">
+              <h4 class="list-group-item-heading">Saturday, Nov 7th</h4>
+              <p class="list-group-item-text">day_rating, note_entry, list of symptoms, list of medication</p>
+            </a>
+          </div>
+        </div> <!-- /.col-sm-4 -->
+      </div>
+    </div> <!-- end container -->
 
 
     <!-- Bootstrap core JavaScript
