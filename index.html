@@ -14,9 +14,12 @@
     <link href="assets/css/bootstrap-theme.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="assets/css/theme.css" rel="stylesheet">
+    <!-- My CSS -->
+    <link href="assets/css/project.css" rel="stylesheet">
   </head>
 
   <body role="document">
+
 
     <!-- Fixed navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -36,9 +39,10 @@
               </ul>
             </li>
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
-    </nav>
+    </nav> <!-- end Fixed navbar -->
+
 
     <div class="container theme-showcase" role="main">
       <!-- Main jumbotron for Chart -->
@@ -49,186 +53,176 @@
     </div> <!-- /container -->
 
 
-  <!-- Modal Registration -->
-  <div class="modal fade" id="regModal" role="dialog">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-
-        <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Please register</h4>
+    <!-- Modal Registration -->
+    <div class="modal fade" id="regModal" role="dialog">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Please register</h4>
+          </div>
+          <div class="modal-body">
+            <p>
+              <label class="sr-only">Email address</label>
+              <input for="Email" type="email" id="regEmail" class="form-control" placeholder="email address" required autofocus>
+            <br>
+              <label for="regPassword" class="sr-only">Password</label>
+              <input type="password" id="regPassword" class="form-control" placeholder="password" required>
+              <input type="password" id="confirmPassword" class="form-control" placeholder="confirm password" required>
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="register">Register</button>
+          </div>
+          <div class="alert alert-danger fade in" id="regAlert">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong>Registration unsuccessful</strong>
+          </div>
         </div>
-
-        <div class="modal-body">
-        <p>
-        <label for="regEmail" class="sr-only">Email address</label>
-        <input type="email" id="regEmail" class="form-control" placeholder="email address" required autofocus>
-        <br/>
-        <label for="regPassword" class="sr-only">Password</label>
-        <input type="password" id="regPassword" class="form-control" placeholder="password" required>
-        <input type="password" id="confirmPassword" class="form-control" placeholder="confirm password" required>
-        </p>
-        </div>
-
-        <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" id="register">Register</button>
-        </div>
-
-        <div class="alert alert-danger fade in" id="regAlert">
-        <a href="#" class="close" data-dismiss="alert">&times;</a>
-        <strong>Registration unsuccessful</strong>
-        </div>
-
       </div>
-    </div>
-  </div>
+    </div> <!-- end Modal Registration -->
 
-  <!-- Modal Login -->
-  <div class="modal fade" id="logModal" role="dialog">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
 
-        <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Please sign in</h4>
+    <!-- Modal Login -->
+    <div class="modal fade" id="logModal" role="dialog">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Please sign in</h4>
+          </div>
+          <div class="modal-body">
+            <p>
+              <label class="sr-only">Email address</label>
+              <input for="Email" type="email" id="logEmail" class="form-control" placeholder="email address" required autofocus>
+            <br>
+              <label for="logPassword" class="sr-only">Password</label>
+              <input type="password" id="logPassword" class="form-control" placeholder="password" required>
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="login">Sign in</button>
+          </div>
+          <div class="alert alert-danger fade in" id="logAlert">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong>Sign in unsuccessful</strong>
+          </div>
         </div>
-
-        <div class="modal-body">
-        <p>
-        <label for="logEmail" class="sr-only">Email address</label>
-        <input type="email" id="logEmail" class="form-control" placeholder="email address" required autofocus>
-        <br/>
-        <label for="logPassword" class="sr-only">Password</label>
-        <input type="password" id="logPassword" class="form-control" placeholder="password" required>
-        </p>
-        </div>
-
-        <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" id="login">Sign in</button>
-        </div>
-
-        <div class="alert alert-danger fade in" id="logAlert">
-        <a href="#" class="close" data-dismiss="alert">&times;</a>
-        <strong>Sign in unsuccessful</strong>
-        </div>
-
       </div>
-    </div>
-  </div>
-
-<!-- After Login, show options create entry and list entries -->
-<div class="container">
-  <div class="row">
-
-    <form id="create-entry">
-      <input name="create-entry" type="submit" class="btn btn-default" value="Create entry">
-      <input class="token" name="token" type="hidden">
-    </form>
-
-    <form id="list-entries">
-      <input name="list-entries" type="submit" class="btn btn-default" value="List Entries">
-      <input class="token" name="token" type="hidden">
-    </form>
-
-  </div>
-</div>
+    </div> <!-- end modal Login -->
 
 
-<!-- hidden container form -->
-<div class="container" id="new-entry">
-  <div class="row">
-    <!-- panel preview -->
-    <div class="col-sm-5">
-            <h4>Add Entry</h4>
-            <div class="panel panel-default">
-                <div class="panel-body form-horizontal payment-form">
-                    <div class="form-group">
-                        <label for="day_rating" class="col-sm-5 control-label">Day Rating</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="rating-input" placeholder="Type a word">
+    <!-- After Login, show options create entry and list entries -->
+    <div class="container">
+
+        <form class="submit" id="create-entry">
+          <input name="create-entry" type="submit" class="btn btn-default" value="Create entry">
+          <input class="token" name="token" type="hidden">
+        </form>
+
+        <form class="submit" id="list-entries">
+          <input name="list-entries" type="submit" class="btn btn-default" value="List Entries">
+          <input class="token" name="token" type="hidden">
+        </form>
+
+    </div> <!-- end container -->
+
+    <!-- hidden container form -->
+    <div class="container" id="new-entry">
+      <div class="row">
+        <!-- panel preview -->
+        <div class="col-sm-5">
+               <h4>Add Entry</h4>
+               <div class="panel panel-default">
+                   <div class="panel-body form-horizontal payment-form">
+                       <div class="form-group">
+                           <label for="day_rating" class="col-sm-5 control-label">Day Rating</label>
+                           <div class="col-sm-9">
+                               <input type="text" class="form-control" id="rating-input" placeholder="Type a word">
+                            </div>
+                       </div>
+                       <div class="form-group">
+                           <label for="pain_rank" class="col-sm-5 control-label">Pain Level<br>9 = max, 1 = min</label>
+                           <div class="col-sm-9">
+                               <select class="form-control" id="rank-select" placeholder="select pain level">
+                                    <option>1</option>
+                                   <option>2</option>
+                                   <option>3</option>
+                                   <option>4</option>
+                                   <option>5</option>
+                                   <option>6</option>
+                                   <option>7</option>
+                                   <option>8</option>
+                                   <option>9</option>
+                               </select>
+                           </div>
+                       </div>
+                       <div class="form-group">
+                            <label for="note_entry" class="col-sm-5 control-label">Enter Note</label>
+                           <div class="col-sm-9">
+                               <textarea rows="3" class="form-control" placeholder="Describe today's symptoms."></textarea>
+                           </div>
+                       </div>
+                       <div class="form-group">
+                           <label for="symptoms" class="col-sm-5 control-label">Symptoms</label>
+                           <div class="col-sm-9">
+                               <input type="text" class="form-control" id="symptoms" placeholder="list symptoms">
+                           </div>
+                       </div>
+                       <div class="form-group">
+                            <label for="medication" class="col-sm-5 control-label">Medication</label>
+                            <div class="col-sm-9">
+                               <input type="text" class="form-control" id="med-input" placeholder="list medications">
+                           </div>
+                       </div>
+                           <div class="form-group">
+                            <label for="mood" class="col-sm-5 control-label">Mood<br>1 = positive mood</label>
+                           <div class="col-sm-9">
+                               <select class="form-control" id="mood-select" placeholder="select mood">
+                                   <option>1</option>
+                                   <option>2</option>
+                                   <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="pain_rank" class="col-sm-5 control-label">Pain Level<br>9 = max, 1 = min</label>
-                        <div class="col-sm-9">
-                            <select class="form-control" id="rank-select" placeholder="select pain level">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                            </select>
+                        <div class="form-group">
+                            <label for="date" class="col-sm-5 control-label">Date</label>
+                            <div class="col-sm-9">
+                                <input type="date" class="form-control" id="date" name="date">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="note_entry" class="col-sm-5 control-label">Enter Note</label>
-                        <div class="col-sm-9">
-                            <textarea rows="3" class="form-control" placeholder="Describe today's symptoms."></textarea>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="symptoms" class="col-sm-5 control-label">Symptoms</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="symptoms" placeholder="list symptoms">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="medication" class="col-sm-5 control-label">Medication</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="med-input" placeholder="list medications">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="mood" class="col-sm-5 control-label">Mood<br>1 = positive mood</label>
-                        <div class="col-sm-9">
-                            <select class="form-control" id="mood-select" placeholder="select mood">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="date" class="col-sm-5 control-label">Date</label>
-                        <div class="col-sm-9">
-                            <input type="date" class="form-control" id="date" name="date">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-12 text-right">
-                            <button type="button" class="btn btn-default preview-add-button">
-                                <span class="glyphicon glyphicon-plus"></span> Add Entry
-                            </button>
+                        <div class="form-group">
+                            <div class="col-sm-12 text-right">
+                                <button type="button" class="btn btn-default preview-add-button">
+                                    <span class="glyphicon glyphicon-plus"></span> Add Entry
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div> <!-- / panel preview -->
-  </div>
-</div>
+            </div> <!-- / panel preview -->
+        </div>
+    </div>
 
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="assets/js/jquery.validate.min.js"></script>
-    <script src="assest/js/additional-methods.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/api.js"></script>
+    <script src="assets/js/docs.min.js"></script>
+
     <script src="assets/js/project.js"></script>
     <script src="assets/js/session.js"></script>
-    <script src="assets/js/docs.min.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/entry.js"></script>
+
     <!-- chart.js library -->
     <script src="assets/js/Chart.js"></script>
     <script src="assets/js/linechart.js"></script>

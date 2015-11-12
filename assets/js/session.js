@@ -3,10 +3,7 @@ var session = {
   token: null,
 
   makeCredentials: function(email, pw, pwconf){
-    var credentials =  {"credentials": {
-      "email": email,
-      "password": pw
-    }};
+    var credentials = {"credentials":{"email":email,"password":pw}};
     if (pwconf) {  // Adds pwconf if passed in.
       credentials.credentials.password_confirmation = pwconf;
     }
@@ -31,4 +28,5 @@ var session = {
       callback();
     });
   }
+
 };
