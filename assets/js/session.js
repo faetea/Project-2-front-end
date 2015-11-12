@@ -15,7 +15,7 @@ var session = {
 
   register: function(email, pw, pwconf){
     baseapi.register(this.makeCredentials(email, pw, pwconf),
-      function(err, data){
+      function error(err, data){
       if (err) { console.error(err); }
       console.log(data);
     });
@@ -23,7 +23,7 @@ var session = {
 
   login: function(email, pw, callback){
     baseapi.login(session.makeCredentials(email, pw),
-      function(err, data){
+      function error(err, data){
       if (err) { console.error(err); }
       console.log(data);
       session.userId = data.user.id;

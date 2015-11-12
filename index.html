@@ -14,7 +14,6 @@
     <link href="assets/css/bootstrap-theme.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="assets/css/theme.css" rel="stylesheet">
-    <link href="assets/css/signin.css" rel="stylesheet">
   </head>
 
   <body role="document">
@@ -28,8 +27,8 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Health App <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li class="dropdown-header">Users</li>
-                <li><a href="#" id="reg-popup">Register</a></li>
-                <li><a href="#" id="log-popup">Login</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#regModal">Register</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#logModal">Login</a></li>
                 <li role="separator" class="divider"></li>
                 <li class="dropdown-header">Visitors</li>
                 <li><a href="#">How the App works</a></li>
@@ -49,55 +48,97 @@
       </div>
     </div> <!-- /container -->
 
-<!-- hidden Register form -->
-      <form class="form-signin" id="reg-form">
-        <h2 class="form-signin-heading">Please register</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
+
+  <!-- Modal Registration -->
+  <div class="modal fade" id="regModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Please register</h4>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="button" id="register">Register</button>
-      </form>
-<!-- hidden Login form -->
-      <form class="form-signin" id="log-form">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="loginEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="loginPassword" class="form-control" placeholder="Password" required>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
+
+        <div class="modal-body">
+        <p>
+        <label for="regEmail" class="sr-only">Email address</label>
+        <input type="email" id="regEmail" class="form-control" placeholder="email address" required autofocus>
+        <br/>
+        <label for="regPassword" class="sr-only">Password</label>
+        <input type="password" id="regPassword" class="form-control" placeholder="password" required>
+        <input type="password" id="confirmPassword" class="form-control" placeholder="confirm password" required>
+        </p>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="button" id="login">Sign in</button>
-      </form>
 
-<!-- http://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_js_modal2&stacked=h -->
-After Login, Ask:
+        <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="register">Register</button>
+        </div>
 
-Would you like to list previous entries?
-<form id="list-entries">
-  <input name="list-entries" type="submit" class="btn btn-default" value="List Entries">
-  <input class="token" name="token" type="hidden">
-</form>
+        <div class="alert alert-danger fade in" id="regAlert">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <strong>Registration unsuccessful</strong>
+        </div>
 
-Would you like to creat a new entry?
-<form id="create-entry">
-  <input name="create-entry" type="submit" class="btn btn-default" value="Create entry">
-  <input class="token" name="token" type="hidden">
-</form>
+      </div>
+    </div>
+  </div>
 
-<!-- hidden container form -->
+  <!-- Modal Login -->
+  <div class="modal fade" id="logModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Please sign in</h4>
+        </div>
+
+        <div class="modal-body">
+        <p>
+        <label for="logEmail" class="sr-only">Email address</label>
+        <input type="email" id="logEmail" class="form-control" placeholder="email address" required autofocus>
+        <br/>
+        <label for="logPassword" class="sr-only">Password</label>
+        <input type="password" id="logPassword" class="form-control" placeholder="password" required>
+        </p>
+        </div>
+
+        <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="login">Sign in</button>
+        </div>
+
+        <div class="alert alert-danger fade in" id="logAlert">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <strong>Sign in unsuccessful</strong>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+<!-- After Login, show options create entry and list entries -->
 <div class="container">
   <div class="row">
-        <!-- panel preview -->
-        <div class="col-sm-5">
+
+    <form id="create-entry">
+      <input name="create-entry" type="submit" class="btn btn-default" value="Create entry">
+      <input class="token" name="token" type="hidden">
+    </form>
+
+    <form id="list-entries">
+      <input name="list-entries" type="submit" class="btn btn-default" value="List Entries">
+      <input class="token" name="token" type="hidden">
+    </form>
+
+  </div>
+</div>
+
+
+<!-- hidden container form -->
+<div class="container" id="new-entry">
+  <div class="row">
+    <!-- panel preview -->
+    <div class="col-sm-5">
             <h4>Add Entry</h4>
             <div class="panel panel-default">
                 <div class="panel-body form-horizontal payment-form">
@@ -181,6 +222,8 @@ Would you like to creat a new entry?
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="assets/js/jquery.validate.min.js"></script>
+    <script src="assest/js/additional-methods.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/api.js"></script>
     <script src="assets/js/project.js"></script>
@@ -189,7 +232,5 @@ Would you like to creat a new entry?
     <!-- chart.js library -->
     <script src="assets/js/Chart.js"></script>
     <script src="assets/js/linechart.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>

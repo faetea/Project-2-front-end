@@ -1,31 +1,23 @@
 $(document).ready(function(){
-  $("#reg-form").hide();
-  $("#log-form").hide();
 
-  $("#reg-popup").click(function(){
-    $("#reg-form").show();
-    $("#log-form").hide();
-  });
+$("#regAlert").hide();
+$("#logAlert").hide();
 
-  $("#log-popup").click(function(){
-    $("#log-form").show();
-    $("#reg-form").hide();
-  });
+$("#create-entry").hide();
+$("#list-entries").hide();
+$("#new-entry").hide();
 
   $("#register").click(function(){
-    var credentials = {
-      "credentials": {
-        "email": $("#inputEmail").val(),
-        "password": $("#inputPassword").val(),
-        "password_confirmation": $("#inputPassword").val()
-      }
-    };
-
-    baseapi.register(credentials, null);
+    session.register( $("#regEmail").val(), $("#regPassword").val(), $("#confirmPassword").val() );
+    // if an error occurs then display error alert
+    // if ( error() = true ) { $("#regAlert").show(); }
   });
 
   $("#login").click(function(){
-    session.login( $("#loginEmail").val(), $("#loginPassword").val() );
+    session.login( $("#logEmail").val(), $("#logPassword").val() );
+    $("#create-entry").show();
+    $("#list-entries").show();
+
   });
 
 });
