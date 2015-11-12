@@ -34,7 +34,18 @@ $(document).ready(function(){
 
 
   $("#save-entry-button").click(function(){
-    entry.createEntry();
+    var newEntry = {
+      "entry":{
+        "day_rating":$("#rating-input").val(),
+        "pain_rank":$("#pain-select").val(),
+        "note_entry":$("#notes-text").val(),
+        "symptoms":$("#symptoms-input").val(),
+        "medication":$("#med-input").val(),
+        "mood":$("#mood-select").val()
+      }
+    }
+    entry.createEntry(newEntry);
+    $("#create-entry-form").hide();
   }); // end click handler
 
   // $("#show-entry").click(function(){
@@ -47,3 +58,14 @@ $(document).ready(function(){
 
 
 }); // end document ready function
+
+
+// $("#rating-input").val()   t.string   "day_rating"
+// $("#pain-select").val()    t.integer  "pain_rank"
+// $("#notes-text").val()     t.string   "note_entry"
+// $("#symptoms-input").val() t.string   "symptoms"
+// $("#med-input").val()      t.string   "medication"
+// $("#mood-select").val()    t.integer  "mood"
+// $("#date-input").val()     t.datetime "created_at"
+
+//     "created_at":$("#date-input").val()

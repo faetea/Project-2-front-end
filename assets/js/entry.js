@@ -1,8 +1,8 @@
 var entry = {
   entryId: null,
 
-  createEntry: function(){
-    baseapi.createEntry(session.token, function(err, data){
+  createEntry: function(newEntry){
+    baseapi.createEntry(newEntry, session.token, function(err, data){
       if (err) { console.error(err); }
       console.log(data);
     });

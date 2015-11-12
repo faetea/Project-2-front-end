@@ -34,7 +34,7 @@ var baseapi = {
 
   // similar to createGame?
   // user can create a new entry
-  createEntry: function (token, callback) {
+  createEntry: function (newEntry, token, callback) {
     this.ajax({
       method: 'POST',
       url: this.base + '/entries',
@@ -42,7 +42,7 @@ var baseapi = {
         Authorization: 'Token token=' + token
       },
       contentType: 'application/json;charset=utf-8',
-      data: JSON.stringify({}),
+      data: JSON.stringify(newEntry),
       dataType: 'json',
     }, callback);
   },
