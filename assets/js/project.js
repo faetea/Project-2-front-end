@@ -95,13 +95,26 @@ $("#list-entries-button").click(function(){
 // clicking save-entry-button will save-new-entry to database
 $("#save-entry-button").click(function(){
   baseapi.createEntry(newEntry, session.token, function(err, data){
-      if (err) { console.error(err); }
-      console.log(data);
-    });
+    if (err) { console.error(err); }
+    console.log(data);
+  });
   $("#create-entry-form").hide();
 }); // end click handler
 
 
+//showEntry
+baseapi.showEntry(entryId, session.token, function(err, data){
+  if (err) { console.error(err); }
+  entry.entryId = data.entry.id;
+  cb();
+});
+
+
 // $("#edit-entry").click(function(){
-//   entry.editEntry();
+//editEntry
+baseapi.editEntry(entryId, session.token, function(err, data){
+  if (err) { console.error(err); }
+  entry.entryId = data.entry.id;
+  cb();
+});
 // }); // end click handler

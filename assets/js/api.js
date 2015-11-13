@@ -1,6 +1,6 @@
 var baseapi = {
-  // base: 'https://shielded-inlet-3169.herokuapp.com',
-  base: 'http://localhost:3000',
+  base: 'https://shielded-inlet-3169.herokuapp.com',
+  // base: 'http://localhost:3000',
 
   ajax: function(config, cb) {
     $.ajax(config).done(function(data, textStatus, jqxhr) {
