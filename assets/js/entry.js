@@ -35,12 +35,6 @@ var entry = {
 //   baseapi.createEntry(token, callback);
 // });
 
-// $('#list-entries').on('submit', function(e) {
-//   var token = $(this).children('[name="token"]').val();
-//   e.preventDefault();
-//   baseapi.listEntries(token, callback);
-// });
-
 // $('#show-entry').on('submit', function(e) {
 //   var token = $(this).children('[name="token"]').val();
 //   var id = $('#show-id').val();

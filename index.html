@@ -176,12 +176,13 @@
                   </div>
               </div> <!-- end mood integer -->
 
-              <div class="form-group">
+<!--               <div class="form-group">
                 <label for="date" class="control-label col-md-4">Date</label>
                   <div class="col-md-5">
                     <input type="date" class="form-control" id="date-input" name="date">
                   </div>
-              </div> <!-- end date -->
+              </div> -->
+              <!-- end date -->
 
               <div class="form-group">
                 <div class="col-md-6 text-right">
@@ -201,14 +202,35 @@
             </div>
         </div> <!-- end col-xs-6 list-of-entries -->
 
+        <div class="col-xs-6" id="shown-entry"> <!-- Col always 50% wide, on mobile & desktop -->
+          <div class="panel panel-default panel-body form-horizontal well">
+            <div id="show-view">
+<!--  THIS DIV SHOULD DISPLAY THE SELECTED PAST ENTRY -->
+            </div>
+          </div>
+        </div> <!-- end col-xs-6 list-of-entries -->
+
       </div> <!-- end row -->
     </div> <!-- end container for form and list -->
+
 
     <script id="entry-script" type="text/x-handlebars-template">
       {{#each entries}}
         <a href="#" class="list-group-item">
           <h4 class="list-group-item-heading">{{created_at}}</h4>
           <p class="list-group-item-text">{{day_rating}}, {{pain_rank}}, {{note_entry}}, {{symptoms}}, {{medication}}, {{mood}}</p>
+        </a>
+      {{/each}}
+    </script>
+
+    <script id="show-script" type="text/x-handlebars-template">
+      {{#each entries}}
+        <a href="#" class="list-group-item">
+          <h4 class="list-group-item-heading">{{created_at}}</h4>
+          <p class="list-group-item-text">'<em>{{day_rating}}</em>'<br>
+          Notes: {{note_entry}}<br>
+          Symptoms: {{symptoms}}<br>
+          Medications: {{medication}}</p>
         </a>
       {{/each}}
     </script>

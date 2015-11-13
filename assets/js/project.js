@@ -7,6 +7,7 @@ $(document).ready(function(){
   $("#list-entries-button").hide();
   $("#create-entry-form").hide();
   $("#list-of-entries").hide();
+  $("#shown-entry").hide();
 
   // register session
   $("#register").click(function(){
@@ -26,12 +27,31 @@ $(document).ready(function(){
 
 // want to use HANDLEBARS to display userId in navbar
 
+var newEntry = {
+  "entry": {
+    "day_rating":$("#rating-input").val(),
+    "pain_rank":$("#pain-select").val(),
+    "note_entry":$("#notes-text").val(),
+    "symptoms":$("#symptoms-input").val(),
+    "medication":$("#med-input").val(),
+    "mood":$("#mood-select").val(),
+    "created_at":$("#date-input").val()
+  }
+};
+
 
 // clicking new-entry-button will show the create-entry-form
 $("#new-entry-button").click(function(){
   $("#create-entry-form").show();
   $("#list-of-entries").hide();
 }); // end click handler
+
+
+// dateTimeFormat
+var dtf = new Intl.DateTimeFormat(["en-us"], { weekday: "long", year: "numeric", month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" });
+
+var entryIndexTemplate;
+var newHTML;
 
 // clicking list-entries-button will populate list-view, and show the list-of-entries
 $("#list-entries-button").click(function(){
@@ -41,50 +61,59 @@ $("#list-entries-button").click(function(){
     console.log(data);
     // reverse list, most recent entries at top
     data.entries.reverse();
-    // dateTimeFormat
-    var dtf = new Intl.DateTimeFormat(["en-us"], {
-      weekday: "long", year: "numeric", month: "short",
-      day: "numeric", hour: "2-digit", minute: "2-digit"
-    });
     for (var i = 0; i < data.entries.length; i++) {
       console.log(data.entries[i].created_at);
       data.entries[i].created_at = dtf.format(new Date(data.entries[i].created_at));
     }
     // handlebars
-    var entryIndexTemplate = Handlebars.compile($('#entry-script').html());
-    var newHTML = entryIndexTemplate(data);
+    entryIndexTemplate = Handlebars.compile($('#entry-script').html());
+    newHTML = entryIndexTemplate(data);
     $("#list-view").html(newHTML);
   }); // end baseapi.listEntries
   $("#list-of-entries").show();
   $("#create-entry-form").hide();
 }); // end click handler
 
+
 // after, clicking new-entry-button, when user is inside create-entry-form
 // clicking save-entry-button will save-new-entry to database
 $("#save-entry-button").click(function(){
-  var newEntry = {
-    "entry":{
-      "day_rating":$("#rating-input").val(),
-      "pain_rank":$("#pain-select").val(),
-      "note_entry":$("#notes-text").val(),
-      "symptoms":$("#symptoms-input").val(),
-      "medication":$("#med-input").val(),
-      "mood":$("#mood-select").val(),
-      "created_at":$("#date-input").val()
-    }
-  }
-  entry.createEntry(newEntry);
+  baseapi.createEntry(newEntry, session.token, function(err, data){
+      if (err) { console.error(err); }
+      console.log(data);
+    });
   $("#create-entry-form").hide();
 }); // end click handler
 
 
 // after, clicking list-entries-button, when user is inside list-of-entries
 // clicking specific preview from list will show that entry in viewer
-// $("#show-entry").click(function(){
-//   entry.showEntry();
-// }); // end click handler
+$("#shown-entry").click(function(){
+  baseapi.showEntry(entryId, session.token, function(err, data){
+    if (err) {
+      console.error(err);
+    }
+    console.log(data);
+    entry.entryId = data.entry.id;
+    cb();
+  });
+  // handlebars
+  entryIndexTemplate = Handlebars.compile($('#show-script').html());
+  newHTML = entryIndexTemplate(data);
+  $("#show-view").html(newHTML);
+}); // end click handler
 
-//
+
+
+
+
+
+
+
+
+
+
+
 // $("#edit-entry").click(function(){
 //   entry.editEntry();
 // }); // end click handler
