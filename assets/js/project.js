@@ -99,6 +99,7 @@ $("#save-entry-button").click(function(){
     console.log(data);
   });
   $("#create-entry-form").hide();
+  $("#list-of-entries").show();
 }); // end click handler
 
 
