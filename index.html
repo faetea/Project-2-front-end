@@ -16,9 +16,6 @@
     <link href="assets/css/theme.css" rel="stylesheet">
     <!-- My CSS -->
     <link href="assets/css/project.css" rel="stylesheet">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="assets/js/project.js"></script>
   </head>
 
   <body role="document">
@@ -198,38 +195,38 @@
         <div class="col-xs-6" id="list-of-entries"> <!-- Col always 50% wide, on mobile & desktop -->
           <h3>List Previous Entries</h3>
             <div class="list-group">
-              <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading">Monday, Nov 9th</h4>
-                <p class="list-group-item-text">day_rating, note_entry, list of symptoms, list of medication</p>
-              </a>
-              <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading">Sunday, Nov 8th</h4>
-                <p class="list-group-item-text">day_rating, note_entry, list of symptoms, list of medication</p>
-              </a>
-              <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading">Saturday, Nov 7th</h4>
-                <p class="list-group-item-text">day_rating, note_entry, list of symptoms, list of medication</p>
-              </a>
+              <ul id="list-view">
+<!--  THIS DIV/UL SHOULD CONTAIN A LIST GROUP OF PAST ENTRIES -->
+              </ul>
             </div>
         </div> <!-- end col-xs-6 list-of-entries -->
 
       </div> <!-- end row -->
     </div> <!-- end container for form and list -->
 
+    <script id="entry-script" type="text/x-handlebars-template">
+      {{#each entries}}
+        <li>
+          <h4>{{created_at}}</h4>
+            {{day_rating}}, {{pain_rank}}, {{note_entry}}, {{symptoms}}, {{medication}}, {{mood}}
+        </li>
+      {{/each}}
+    </script>
+
+    <label for="result">Result</label>
+    <textarea id="result"></textarea>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/docs.min.js"></script>
-
+    <script src="assets/js/handlebars-v3.0.3.js"></script>
+    <!-- My JavaScripts -->
+    <script src="assets/js/project.js"></script>
     <script src="assets/js/session.js"></script>
-    <script src="assets/js/api.js"></script>
     <script src="assets/js/entry.js"></script>
-
-    <!-- chart.js library -->
-    <script src="assets/js/Chart.js"></script>
-    <script src="assets/js/linechart.js"></script>
+    <script src="assets/js/api.js"></script>
   </body>
 </html>
