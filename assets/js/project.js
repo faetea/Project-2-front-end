@@ -69,6 +69,22 @@ $("#list-entries-button").click(function(){
     entryIndexTemplate = Handlebars.compile($('#entry-script').html());
     newHTML = entryIndexTemplate(data);
     $("#list-view").html(newHTML);
+    for (var i = 0; i < data.entries.length; i++) {
+      $("#" + data.entries[i].id).click(function() {
+        // display the shown-entry-well-container
+        $("#shown-entry").show();
+        baseapi.showEntry(entryId, session.token, function(err, data){
+          if (err) { console.error(err); }
+          console.log(data);
+          entry.entryId = data.entry.id;
+          cb();
+        });
+      // handlebars
+      entryIndexTemplate = Handlebars.compile($('#show-script').html());
+      newHTML = entryIndexTemplate(data);
+      $("#show-view").html(newHTML);
+      });
+    }
   }); // end baseapi.listEntries
   $("#list-of-entries").show();
   $("#create-entry-form").hide();
@@ -84,34 +100,6 @@ $("#save-entry-button").click(function(){
     });
   $("#create-entry-form").hide();
 }); // end click handler
-
-
-// after, clicking list-entries-button, when user is inside list-of-entries
-// clicking specific preview from list will show that entry in viewer
-$("#shown-entry").click(function(){
-  baseapi.showEntry(entryId, session.token, function(err, data){
-    if (err) {
-      console.error(err);
-    }
-    console.log(data);
-    entry.entryId = data.entry.id;
-    cb();
-  });
-  // handlebars
-  entryIndexTemplate = Handlebars.compile($('#show-script').html());
-  newHTML = entryIndexTemplate(data);
-  $("#show-view").html(newHTML);
-}); // end click handler
-
-
-
-
-
-
-
-
-
-
 
 
 // $("#edit-entry").click(function(){
