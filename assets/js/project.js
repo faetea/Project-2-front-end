@@ -39,6 +39,17 @@ $("#list-entries-button").click(function(){
   baseapi.listEntries(session.token, function(err, data){
     if (err) {console.error(err);}
     console.log(data);
+    // reverse list, most recent entries at top
+    data.entries.reverse();
+    // dateTimeFormat
+    var dtf = new Intl.DateTimeFormat(["en-us"], {
+      weekday: "long", year: "numeric", month: "short",
+      day: "numeric", hour: "2-digit", minute: "2-digit"
+    });
+    for (var i = 0; i < data.entries.length; i++) {
+      console.log(data.entries[i].created_at);
+      data.entries[i].created_at = dtf.format(new Date(data.entries[i].created_at));
+    }
     // handlebars
     var entryIndexTemplate = Handlebars.compile($('#entry-script').html());
     var newHTML = entryIndexTemplate(data);
@@ -77,5 +88,3 @@ $("#save-entry-button").click(function(){
 // $("#edit-entry").click(function(){
 //   entry.editEntry();
 // }); // end click handler
-
-
