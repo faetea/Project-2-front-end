@@ -27,18 +27,6 @@ $(document).ready(function(){
 
 // want to use HANDLEBARS to display userId in navbar
 
-var newEntry = {
-  "entry": {
-    "day_rating":$("#rating-input").val(),
-    "pain_rank":$("#pain-select").val(),
-    "note_entry":$("#notes-text").val(),
-    "symptoms":$("#symptoms-input").val(),
-    "medication":$("#med-input").val(),
-    "mood":$("#mood-select").val(),
-    "created_at":$("#date-input").val()
-  }
-};
-
 
 // clicking new-entry-button will show the create-entry-form
 $("#new-entry-button").click(function(){
@@ -91,16 +79,25 @@ $("#list-entries-button").click(function(){
 }); // end click handler
 
 
+var newEntry;
 // after, clicking new-entry-button, when user is inside create-entry-form
 // clicking save-entry-button will save-new-entry to database
 $("#save-entry-button").click(function(){
+  newEntry = {
+    "entry":{
+      "day_rating":$("#rating-input").val(),
+      "pain_rank":$("#pain-select").val(),
+      "note_entry":$("#notes-text").val(),
+      "symptoms":$("#symptoms-input").val(),
+      "medication":$("#med-input").val(),
+      "mood":$("#mood-select").val()
+    }
+  }
   baseapi.createEntry(newEntry, session.token, function(err, data){
     if (err) { console.error(err); }
     console.log(data);
   });
   $("#create-entry-form").hide();
-  $("#new-entry-button").show();
-  $("#list-entries-button").show();
 }); // end click handler
 
 
