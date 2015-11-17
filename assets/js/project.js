@@ -58,19 +58,14 @@ $("#list-entries-button").click(function(){
     newHTML = entryIndexTemplate(data);
     $("#list-view").html(newHTML);
     for (var i = 0; i < data.entries.length; i++) {
+      var shownEntry = data.entries[i];
       $("#entry-number-" + data.entries[i].id).click(function() {
         // display the shown-entry-well-container
         $("#shown-entry").show();
-        baseapi.showEntry(entryId, session.token, function(err, data){
-          if (err) { console.error(err); }
-          console.log(data);
-          entry.entryId = data.entry.id;
-          cb();
-        });
-      // handlebars
-      entryIndexTemplate = Handlebars.compile($('#show-script').html());
-      newHTML = entryIndexTemplate(data);
-      $("#show-view").html(newHTML);
+        // handlebars
+        var showIndexTemplate = Handlebars.compile($('#show-script').html());
+        var showHTML = showIndexTemplate(shownEntry);
+        $("#show-view").html(showHTML);
       });
     }
   }); // end baseapi.listEntries

@@ -147,7 +147,7 @@
               <div class="form-group">
                 <label for="note_entry" class="control-label col-md-4">Notes</label>
                   <div class="col-md-5">
-                    <textarea rows="3" class="form-control" id="notes_text" placeholder="Describe today's symptoms"></textarea>
+                    <textarea rows="3" class="form-control" id="notes-text" placeholder="Describe today's symptoms"></textarea>
                   </div>
               </div> <!-- end note -->
 
@@ -227,7 +227,14 @@
       {{/each}}
     </script>
 
-
+    <script id="show-script" type="text/x-handlebars-template">
+      <h4 class="list-group-item-heading">{{created_at}}</h4>
+      <p class="list-group-item-text">'<em>{{day_rating}}</em>'<br>
+      Notes: {{note_entry}}<br>
+      Symptoms: {{symptoms}}<br>
+      Medications: {{medication}}
+      </p>
+    </script>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
