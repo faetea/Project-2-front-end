@@ -58,7 +58,7 @@ $("#list-entries-button").click(function(){
     newHTML = entryIndexTemplate(data);
     $("#list-view").html(newHTML);
     for (var i = 0; i < data.entries.length; i++) {
-      $("#" + data.entries[i].id).click(function() {
+      $("#entry-number-" + data.entries[i].id).click(function() {
         // display the shown-entry-well-container
         $("#shown-entry").show();
         baseapi.showEntry(entryId, session.token, function(err, data){

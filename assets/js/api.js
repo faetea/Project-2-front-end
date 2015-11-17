@@ -66,7 +66,7 @@ var baseapi = {
   showEntry: function (id, token, callback) {
     this.ajax({
       method: 'GET',
-      url: this.base + '/entries' + id,
+      url: this.base + '/entries/' + id,
       headers: {
         Authorization: 'Token token=' + token
       },
@@ -79,7 +79,7 @@ var baseapi = {
   editEntry: function (id, token, callback) {
     this.ajax({
       method: 'PATCH',
-      url: this.base + '/entries' + id,
+      url: this.base + '/entries/' + id,
       headers: {
         Authorization: 'Token token=' + token
       },
